@@ -1,0 +1,71 @@
+<div>
+  <section class="homebackground">
+    <div class="center">
+
+      <h1>I'm looking for..</h1>
+
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="form-group">
+            <input type="email" class="form-control" id="pwd" placeholder="Enter job description" name="pwd">
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+
+
+      <form class="form-inline">
+        <div class="col-6">
+          <mat-checkbox>Part Time</mat-checkbox>
+          <mat-checkbox>Full Time/Casual/Freelance</mat-checkbox>
+        </div>
+        <div class="col-5">
+          <select matNativeControl required>
+            <option value="volvo">select your location</option>
+            <option value="volvo">mumbai</option>
+            <option value="saab">thane</option>
+            <option value="mercedes">navi Mumbai</option>
+          </select>
+        </div>
+      </form><br>
+      <div class="text-center">
+        <li>
+          <button  class="button button2" mat-raised-button (click)="openDialog()">Register</button>
+        </li>
+        <li *ngIf="register">
+          You chose: <i>{{register}}</i>
+        </li>
+      </div>
+    </div>
+
+
+
+    <div class="text-center justify-content-center">
+      <h4 class="font-italic mt-5">We're leaders in</h4>
+      <h2 class="h2-responsive mb-5">Creative Digital Recruitment</h2>
+      <p class="mt-5 mb-3">Based in Surry Hills,the creative hub of Sydney we are surrounded by creativity <br>and that
+        reflects on the type ofjobs we recruit for.</p>
+      <button class="btn info" type="button">FIND OUT MORE ABOUT US!</button>
+    </div>
+  </section>
+ <br>
+  <section class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="content">
+            <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Enter your email">
+              <span class="input-group-btn">
+                <button class="btn" type="submit">Subscribe Now</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
