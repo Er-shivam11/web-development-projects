@@ -1,0 +1,33 @@
+<div class="card-block">
+</div>
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card p-3">
+    <div *ngFor="let task of collection">
+      <a routerLink="/update/{{task.id}}">
+        <div class="d-flex align-items-center">
+          <div class="image">
+            <img src="../assets/avatar.png" alt="Avatar" class="rounded-square img-fluid">
+            {{task.imageUpload}}
+            <div class="button mt-2 d-flex flex-row align-items-center"> <button
+                class="btn btn-sm btn-primary w-100 ml-2">edit photo</button>
+              <button class="btn btn-sm btn-primary w-100 ml-2">edit profile</button>
+            </div>
+          </div>
+          <div class="ml-3 w-100">
+            <p style="font-size: large;">
+              I'm <b>{{task.fname}}</b> <b>{{task.lname}}</b> and Im above <b>{{task.age}}</b> years and
+              you can send your emails to
+              <b class="text-primary">{{task.email}}</b>.I live in the state of
+              <b>{{task.state}}</b>. I like <b>{{task.tag}}</b>. Please reach out to me on my phone
+              number
+              <b>{{task.pno}}</b>.
+            </p>
+            <div class="row" style="padding-left: 40%;">
+              <button class="btn btn-success">I Agree</button>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>  
+  </div>
+</div>

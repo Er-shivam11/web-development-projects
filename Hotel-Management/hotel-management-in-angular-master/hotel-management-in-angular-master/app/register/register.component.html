@@ -1,0 +1,94 @@
+<div class="registration-form">
+  <form [formGroup]="registerForm" (ngSubmit)="regUser()">
+
+    <div class="card-body">
+      
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="FirstName" formControlName="fname"><br>
+      <span style="color:red" *ngIf="fname && fname.invalid && fname.touched">this field is not valid</span>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="LastName" formControlName="lname"><br>
+      <span style="color:red" *ngIf="lname && lname.invalid && lname.touched">this field is not valid</span>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" placeholder="Email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <input type="tel" class="form-control" placeholder="(971)754-3010" formControlName="pno">
+    </div>
+
+    <div class="form-group">age
+      <mat-slider thumbLabel [displayWith]="formatLabel" formControlName="age" tickInterval="1000" step="1" min="20"
+        max="60" aria-label="units">age
+        <label>age</label>
+      </mat-slider>
+    </div>
+
+    <div class="form-group">
+      <select class="form-control" formControlName="state">
+        <option class="hidden" selected disabled>state</option>
+        <option>goa</option>
+        <option>maharashtra</option>
+        <option>delhi</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <select class="form-control" formControlName="country">
+        <option class="hidden" selected disabled>country</option>
+        <option>US</option>
+        <option>INDIA</option>
+        <option>JAPAN</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <select class="form-control" (change)="hidden($event)">
+        <option value="" disabled selected>Address</option>
+        <option value="1">Home</option>
+        <option value="2">Company</option>
+      </select>
+      <div *ngIf="temp">
+        <div class="form-group">
+          <textarea type="text" formControlName="add1"></textarea>
+          <textarea type="text" formControlName="add1"></textarea>
+          <label>Address 1</label>
+        </div>
+      </div>
+      <div *ngIf="temp1">
+        <div class="form-group">
+          <textarea type="text" formControlName="add2"></textarea>
+          <textarea type="text" formControlName="add2"></textarea>
+          <label>Address 2</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-label>Favorite Hobby</mat-label>
+        <mat-chip-list #chipList aria-label="Hobby selection">
+          <mat-chip *ngFor="let Hobby of hobbies" [selectable]="selectable" [removable]="removable"
+            (removed)="remove(Hobby)">
+            {{Hobby.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="New Hobby..." [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)" formControlName="tag">
+        </mat-chip-list>
+      </mat-form-field>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input">
+      <label class="form-check-label" formControlName="checkData">subscribe to
+        newsletter</label>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="waves-light">Cancel</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+  </form>
+</div>
