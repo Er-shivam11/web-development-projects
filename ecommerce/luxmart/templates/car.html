@@ -1,0 +1,78 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div class="'container mt-5">
+        <form class='col-6 mx-auto card p-3 shadow-lg' method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>CAR DETAILS</h2>
+            <a href="https://www.spinny.com/blog/index.php/types-of-cars-in-india/">CAR DATA</a>
+            <hr>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class='form-label'>Car name</label>
+                <input name="car_name" required type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class='form-label'>Car description</label>
+                <textarea class="'form-control" name='car_details' required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class='form-label'>Car image</label>
+                <input name='car_image' required type="file" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-success">add car</button>
+        </form>
+        <hr style="border-top: 1px dotted red;">
+        <div class="mt-5">
+            <div class="mx-auto col-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class='form-label'>search car</label>
+                        <input name="search" required type="text" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">search car</button>
+                </form>
+            </div>
+        </div>
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">CAR NAME</th>
+                    <th scope="col">DETAILS</th>
+                    <th scope="col">IMAGE</th>
+                    <th scope="col">actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for cardet in cardeta %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{cardet.car_name}}</td>
+                    <td>{{cardet.car_details}}</td>
+                    <td>
+                        <img src='/media/{{cardet.car_image}}' style="height: 200;">
+                    </td>
+                    <td>
+                        <a href="/delete-car/{{cardet.id}}/" class='btn btn-danger'>delete</a>
+                    </td>
+                    <td>
+                        <a href="/update-car/{{cardet.id}}/" class='btn btn-success'>update</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
