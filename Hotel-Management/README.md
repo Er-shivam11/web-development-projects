@@ -1,4 +1,4 @@
-# Hotel Management UI using Angular-12
+# Hotel Management UI using Angular-12.
 
 This repository contains the code for a hotel management user interface (UI) designed using Angular. This UI can be used to manage hotel operations such as room bookings, guest check-ins, and check-outs, as well as view reports and analytics.
 
