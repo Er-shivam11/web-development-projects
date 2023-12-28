@@ -33,7 +33,8 @@ The script is built using:
 Install the necessary dependencies:
 
 2.
+```bash
 pip install requests beautifulsoup4
-Run the script:
 
+Run the script:
 python web_scraping_script.py
